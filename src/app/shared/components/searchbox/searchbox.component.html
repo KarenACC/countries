@@ -1,0 +1,20 @@
+<input 
+type="text" 
+[placeholder]="placeholder" 
+[value]="initialValue"
+class="form-control"
+(keyup.enter)="emitValue(txtInput.value)"
+#txtInput
+>
+
+ <!-- La referencia local #txtInput hace referencia al input y su valor está siendo usado como parámetro cuando se llama al evento emitValue -->
+ <!-- El input tiene un evento (keyup.enter) que se dispara cuando se hace enter en el input -->
+ <!-- Al hacer enter en el input, se llama al evento emitValue y se le envía el valor de la referencia local -->
+
+ <!-- El evento emitValue está dentro del componente searchbox component y, a su vez, este evento emite el evento personalizaado onValue que usa el decorador Output -->
+
+ <!-- En el html del componente byCapital, dentro de las etiquetas searchbox que llaman al componente searchbox, se usa la linea 
+    (onValue)="searchByCapital($event)"
+    Esta linea conecta el evento personalizado onValue con el evento searchByCapital que se declara en el componente ByCapitalPageComponent, este 
+    evento controla el evento personalizado y recibe un string como argumento, dicho string está guardado en la variable $event
+ --> 
